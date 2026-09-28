@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Upload Inventory — AL to RHEL Migration Analyzer{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Amazon Linux to RHEL Migration Analyzer</h1>
+    <p>Upload a discovery inventory from your Amazon Linux instance to get a detailed package and runtime compatibility report for RHEL.</p>
+</section>
+
+<section class="upload-section">
+    <div class="card">
+        <h2>Step 1: Run Discovery on Source Instance</h2>
+        <div class="code-block">
+            <code>
+# Copy the script to your Amazon Linux instance, then run:
+chmod +x discover.sh
+sudo ./discover.sh
+
+# The script generates: inventory-&lt;hostname&gt;-&lt;date&gt;.json
+# Transfer this file to your workstation for analysis.
+            </code>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Step 2: Upload Inventory &amp; Analyze</h2>
+        <form action="/analyze" method="post" enctype="multipart/form-data" id="upload-form">
+
+            <div class="form-group">
+                <label for="target_os">Target RHEL Version</label>
+                <select name="target_os" id="target_os">
+                    <option value="rhel8">RHEL 8</option>
+                    <option value="rhel9" selected>RHEL 9</option>
+                    <option value="rhel10">RHEL 10</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="file">Upload inventory JSON file</label>
+                <input type="file" name="file" id="file" accept=".json">
+            </div>
+
+            <div class="separator">
+                <span>or</span>
+            </div>
+
+            <div class="form-group">
+                <label for="inventory_json">Paste inventory JSON</label>
+                <textarea name="inventory_json" id="inventory_json" rows="12" placeholder='{"schema_version": "1.0", "os": {...}, "packages": [...], ...}'></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Analyze Migration</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>API Usage</h2>
+        <div class="code-block">
+            <code>
+# Upload a file:
+curl -X POST -F "file=@inventory.json" -F "target_os=rhel9" \
+     http://localhost:8000/api/analyze
+
+# Or POST JSON directly:
+curl -X POST -H "Content-Type: application/json" \
+     -d @inventory.json \
+     http://localhost:8000/api/analyze
+            </code>
+        </div>
+    </div>
+</section>
+{% endblock %}

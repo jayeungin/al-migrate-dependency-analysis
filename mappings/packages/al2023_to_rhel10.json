@@ -1,0 +1,189 @@
+{
+  "system-release": {
+    "rhel_package": "redhat-release",
+    "status": "replaced",
+    "notes": "RHEL provides redhat-release."
+  },
+  "amazon-ssm-agent": {
+    "rhel_package": "amazon-ssm-agent",
+    "status": "direct",
+    "notes": "Available from AWS RHEL repo."
+  },
+  "aws-cli-2": {
+    "rhel_package": "awscli2",
+    "status": "renamed",
+    "notes": "Install AWS CLI v2 from the AWS installer bundle."
+  },
+  "ec2-utils": {
+    "rhel_package": null,
+    "status": "removed",
+    "notes": "Use cloud-init on RHEL 10."
+  },
+  "ec2-net-utils": {
+    "rhel_package": null,
+    "status": "removed",
+    "notes": "RHEL 10 uses NetworkManager."
+  },
+  "kernel": {
+    "rhel_package": "kernel",
+    "status": "direct",
+    "notes": "RHEL 10 ships kernel 6.12. AL2023 uses 6.1. Close compatibility."
+  },
+  "glibc": {
+    "rhel_package": "glibc",
+    "status": "direct",
+    "notes": "RHEL 10 ships glibc 2.39. Forward-compatible from AL2023 glibc 2.34."
+  },
+  "openssl": {
+    "rhel_package": "openssl",
+    "status": "direct",
+    "rhel_version": "3.2",
+    "notes": "RHEL 10 ships OpenSSL 3.2. Compatible with AL2023 OpenSSL 3.0 API."
+  },
+  "python3": {
+    "rhel_package": "python3",
+    "status": "direct",
+    "rhel_version": "3.12",
+    "notes": "RHEL 10 default is Python 3.12. AL2023 ships 3.9 — check for deprecated APIs."
+  },
+  "python3.11": {
+    "rhel_package": "python3.11",
+    "status": "direct",
+    "notes": "Available in RHEL 10."
+  },
+  "python3-pip": {
+    "rhel_package": "python3-pip",
+    "status": "direct",
+    "notes": "Available in RHEL 10."
+  },
+  "java-11-amazon-corretto": {
+    "rhel_package": "java-11-openjdk",
+    "status": "replaced",
+    "notes": "OpenJDK 11 may be EOL in RHEL 10. Consider upgrading to 17 or 21."
+  },
+  "java-17-amazon-corretto": {
+    "rhel_package": "java-17-openjdk",
+    "status": "replaced",
+    "notes": "OpenJDK 17 available in RHEL 10."
+  },
+  "java-21-amazon-corretto": {
+    "rhel_package": "java-21-openjdk",
+    "status": "replaced",
+    "notes": "OpenJDK 21 is the primary LTS in RHEL 10."
+  },
+  "nodejs18": {
+    "rhel_package": "nodejs",
+    "status": "renamed",
+    "notes": "Node.js 18 may be EOL. RHEL 10 ships Node.js 22+."
+  },
+  "nodejs20": {
+    "rhel_package": "nodejs",
+    "status": "renamed",
+    "notes": "Use nodejs:20 or newer AppStream module stream."
+  },
+  "nginx": {
+    "rhel_package": "nginx",
+    "status": "direct",
+    "notes": "Available in RHEL 10 AppStream."
+  },
+  "httpd": {
+    "rhel_package": "httpd",
+    "status": "direct",
+    "notes": "Apache 2.4 in RHEL 10."
+  },
+  "docker": {
+    "rhel_package": "podman",
+    "status": "replaced",
+    "notes": "RHEL 10 uses Podman 5.x."
+  },
+  "containerd": {
+    "rhel_package": "podman",
+    "status": "replaced",
+    "notes": "RHEL 10 uses Podman/Buildah/Skopeo."
+  },
+  "mariadb105": {
+    "rhel_package": "mariadb",
+    "status": "renamed",
+    "notes": "RHEL 10 ships MariaDB 10.11."
+  },
+  "postgresql15": {
+    "rhel_package": "postgresql",
+    "status": "renamed",
+    "notes": "RHEL 10 ships PostgreSQL 17."
+  },
+  "redis6": {
+    "rhel_package": "redis",
+    "status": "renamed",
+    "notes": "RHEL 10 ships Redis 7+."
+  },
+  "php8.1": {
+    "rhel_package": "php",
+    "status": "renamed",
+    "notes": "RHEL 10 ships PHP 8.3+."
+  },
+  "golang": {
+    "rhel_package": "golang",
+    "status": "direct",
+    "notes": "Go toolset available in RHEL 10."
+  },
+  "perl": {
+    "rhel_package": "perl",
+    "status": "direct",
+    "notes": "Perl 5.40 in RHEL 10."
+  },
+  "git": {
+    "rhel_package": "git",
+    "status": "direct",
+    "notes": "Available in RHEL 10."
+  },
+  "curl": {
+    "rhel_package": "curl",
+    "status": "direct",
+    "notes": "Available in RHEL 10 BaseOS."
+  },
+  "dnf": {
+    "rhel_package": "dnf5",
+    "status": "renamed",
+    "notes": "RHEL 10 uses dnf5 (rewritten in C++). CLI mostly compatible."
+  },
+  "chrony": {
+    "rhel_package": "chrony",
+    "status": "direct",
+    "notes": "Default NTP in RHEL 10."
+  },
+  "firewalld": {
+    "rhel_package": "firewalld",
+    "status": "direct",
+    "notes": "Default in RHEL 10."
+  },
+  "cloud-init": {
+    "rhel_package": "cloud-init",
+    "status": "direct",
+    "notes": "Available in RHEL 10."
+  },
+  "amazon-cloudwatch-agent": {
+    "rhel_package": "amazon-cloudwatch-agent",
+    "status": "direct",
+    "notes": "Install from AWS RPM repo. Verify RHEL 10 support."
+  },
+  "openssh-server": {
+    "rhel_package": "openssh-server",
+    "status": "direct",
+    "notes": "Available in RHEL 10 BaseOS. DSA keys fully removed."
+  },
+  "sudo": {
+    "rhel_package": "sudo",
+    "status": "direct",
+    "notes": "Available in RHEL 10 BaseOS."
+  },
+  "rsyslog": {
+    "rhel_package": "rsyslog",
+    "status": "direct",
+    "notes": "Available in RHEL 10."
+  },
+  "sssd": {
+    "rhel_package": "sssd",
+    "status": "direct",
+    "notes": "Available in RHEL 10."
+  }
+}

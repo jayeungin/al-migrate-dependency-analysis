@@ -1,0 +1,209 @@
+{
+  "system-release": {
+    "rhel_package": "redhat-release",
+    "status": "replaced",
+    "notes": "RHEL provides redhat-release."
+  },
+  "amazon-ssm-agent": {
+    "rhel_package": "amazon-ssm-agent",
+    "status": "direct",
+    "notes": "Available from AWS RHEL repo."
+  },
+  "aws-cli-2": {
+    "rhel_package": "awscli2",
+    "status": "renamed",
+    "notes": "Install AWS CLI v2 from the AWS installer bundle on RHEL."
+  },
+  "ec2-utils": {
+    "rhel_package": null,
+    "status": "removed",
+    "notes": "Use cloud-init and ec2-instance-connect on RHEL 9."
+  },
+  "ec2-net-utils": {
+    "rhel_package": null,
+    "status": "removed",
+    "notes": "RHEL 9 uses NetworkManager."
+  },
+  "kernel": {
+    "rhel_package": "kernel",
+    "status": "direct",
+    "notes": "AL2023 uses kernel 6.1, RHEL 9 uses 5.14. Verify kernel module compatibility."
+  },
+  "glibc": {
+    "rhel_package": "glibc",
+    "status": "direct",
+    "notes": "AL2023 and RHEL 9 both ship glibc 2.34+. Good compatibility."
+  },
+  "openssl": {
+    "rhel_package": "openssl",
+    "status": "direct",
+    "rhel_version": "3.0",
+    "notes": "Both AL2023 and RHEL 9 ship OpenSSL 3.0. Good compatibility."
+  },
+  "python3": {
+    "rhel_package": "python3",
+    "status": "direct",
+    "rhel_version": "3.9",
+    "notes": "AL2023 ships Python 3.9, same as RHEL 9 default."
+  },
+  "python3.11": {
+    "rhel_package": "python3.11",
+    "status": "direct",
+    "notes": "Available via RHEL 9 AppStream module."
+  },
+  "python3-pip": {
+    "rhel_package": "python3-pip",
+    "status": "direct",
+    "notes": "Available in RHEL 9."
+  },
+  "java-11-amazon-corretto": {
+    "rhel_package": "java-11-openjdk",
+    "status": "replaced",
+    "notes": "Use OpenJDK 11 or install Corretto from AWS repo."
+  },
+  "java-17-amazon-corretto": {
+    "rhel_package": "java-17-openjdk",
+    "status": "replaced",
+    "notes": "OpenJDK 17 available in RHEL 9 AppStream."
+  },
+  "java-21-amazon-corretto": {
+    "rhel_package": "java-21-openjdk",
+    "status": "replaced",
+    "notes": "OpenJDK 21 available in RHEL 9.3+ AppStream."
+  },
+  "nodejs18": {
+    "rhel_package": "nodejs",
+    "status": "renamed",
+    "notes": "Use the nodejs:18 AppStream module stream in RHEL 9."
+  },
+  "nodejs20": {
+    "rhel_package": "nodejs",
+    "status": "renamed",
+    "notes": "Use the nodejs:20 AppStream module stream in RHEL 9."
+  },
+  "nginx": {
+    "rhel_package": "nginx",
+    "status": "direct",
+    "notes": "Available in RHEL 9 AppStream."
+  },
+  "httpd": {
+    "rhel_package": "httpd",
+    "status": "direct",
+    "notes": "Apache 2.4 in RHEL 9 AppStream."
+  },
+  "docker": {
+    "rhel_package": "podman",
+    "status": "replaced",
+    "notes": "RHEL 9 uses Podman. Docker CE available from docker.com."
+  },
+  "containerd": {
+    "rhel_package": "podman",
+    "status": "replaced",
+    "notes": "RHEL 9 uses Podman/Buildah/Skopeo."
+  },
+  "mariadb105": {
+    "rhel_package": "mariadb",
+    "status": "renamed",
+    "notes": "MariaDB 10.5 in RHEL 9 AppStream."
+  },
+  "postgresql15": {
+    "rhel_package": "postgresql",
+    "status": "renamed",
+    "notes": "Use postgresql:15 AppStream module stream in RHEL 9."
+  },
+  "redis6": {
+    "rhel_package": "redis",
+    "status": "renamed",
+    "notes": "Redis 6 in RHEL 9 AppStream."
+  },
+  "php8.1": {
+    "rhel_package": "php",
+    "status": "renamed",
+    "notes": "Use php:8.1 AppStream module stream in RHEL 9."
+  },
+  "ruby3.2": {
+    "rhel_package": "ruby",
+    "status": "renamed",
+    "notes": "Use ruby:3.1 AppStream module in RHEL 9 (closest available)."
+  },
+  "golang": {
+    "rhel_package": "golang",
+    "status": "direct",
+    "notes": "Go toolset available in RHEL 9 AppStream."
+  },
+  "perl": {
+    "rhel_package": "perl",
+    "status": "direct",
+    "notes": "Perl 5.32 in RHEL 9."
+  },
+  "git": {
+    "rhel_package": "git",
+    "status": "direct",
+    "notes": "Available in RHEL 9."
+  },
+  "curl": {
+    "rhel_package": "curl",
+    "status": "direct",
+    "notes": "Available in RHEL 9 BaseOS."
+  },
+  "dnf": {
+    "rhel_package": "dnf",
+    "status": "direct",
+    "notes": "Both AL2023 and RHEL 9 use dnf."
+  },
+  "systemd": {
+    "rhel_package": "systemd",
+    "status": "direct",
+    "notes": "Available in RHEL 9 BaseOS."
+  },
+  "chrony": {
+    "rhel_package": "chrony",
+    "status": "direct",
+    "notes": "Default NTP in both AL2023 and RHEL 9."
+  },
+  "firewalld": {
+    "rhel_package": "firewalld",
+    "status": "direct",
+    "notes": "Default in RHEL 9."
+  },
+  "cloud-init": {
+    "rhel_package": "cloud-init",
+    "status": "direct",
+    "notes": "Available in RHEL 9 AppStream."
+  },
+  "amazon-cloudwatch-agent": {
+    "rhel_package": "amazon-cloudwatch-agent",
+    "status": "direct",
+    "notes": "Install from AWS RPM repo."
+  },
+  "amazon-efs-utils": {
+    "rhel_package": "amazon-efs-utils",
+    "status": "direct",
+    "notes": "Build from source or install from AWS repo."
+  },
+  "openssh-server": {
+    "rhel_package": "openssh-server",
+    "status": "direct",
+    "notes": "Available in RHEL 9 BaseOS."
+  },
+  "sudo": {
+    "rhel_package": "sudo",
+    "status": "direct",
+    "notes": "Available in RHEL 9 BaseOS."
+  },
+  "rsyslog": {
+    "rhel_package": "rsyslog",
+    "status": "direct",
+    "notes": "Available in RHEL 9 BaseOS."
+  },
+  "sssd": {
+    "rhel_package": "sssd",
+    "status": "direct",
+    "notes": "Available in RHEL 9 BaseOS."
+  },
+  "epel-release": {
+    "rhel_package": "epel-release",
+    "status": "direct",
+    "notes": "EPEL 9 available."
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-25T10:30:00Z",
+  "script_version": "1.0.0",
+  "os": {
+    "name": "Amazon Linux",
+    "version": "2",
+    "id": "amzn",
+    "al_version": "al2",
+    "arch": "x86_64",
+    "kernel": "5.10.218-208.862.amzn2.x86_64",
+    "hostname": "ip-10-0-1-42"
+  },
+  "packages": [
+    {"name": "kernel", "version": "5.10.218", "release": "208.862.amzn2", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "glibc", "version": "2.26", "release": "64.amzn2", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "openssl", "version": "1.0.2k", "release": "24.amzn2.0.12", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "openssl11", "version": "1.1.1g", "release": "12.amzn2.0.24", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "python3", "version": "3.7.16", "release": "1.amzn2.0.6", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "python3-pip", "version": "20.2.2", "release": "1.amzn2.0.5", "arch": "noarch", "vendor": "Amazon.com"},
+    {"name": "java-11-amazon-corretto", "version": "11.0.22", "release": "1.amzn2", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "java-17-amazon-corretto", "version": "17.0.10", "release": "1.amzn2", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "nodejs", "version": "16.20.2", "release": "1.amzn2", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "nginx", "version": "1.24.0", "release": "1.amzn2.0.2", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "docker", "version": "25.0.3", "release": "1.amzn2.0.3", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "containerd", "version": "1.7.11", "release": "1.amzn2.0.1", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "amazon-ssm-agent", "version": "3.2.2222.0", "release": "1.amzn2", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "amazon-cloudwatch-agent", "version": "1.300042.0", "release": "1.amzn2", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "amazon-linux-extras", "version": "2.0.4", "release": "1.amzn2", "arch": "noarch", "vendor": "Amazon.com"},
+    {"name": "aws-cli", "version": "1.32.16", "release": "1.amzn2.0.1", "arch": "noarch", "vendor": "Amazon.com"},
+    {"name": "ec2-utils", "version": "1.2", "release": "47.amzn2", "arch": "noarch", "vendor": "Amazon.com"},
+    {"name": "ec2-net-utils", "version": "1.8", "release": "2.amzn2", "arch": "noarch", "vendor": "Amazon.com"},
+    {"name": "git", "version": "2.40.1", "release": "1.amzn2.0.3", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "curl", "version": "8.3.0", "release": "1.amzn2.0.7", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "httpd", "version": "2.4.58", "release": "1.amzn2", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "mariadb", "version": "5.5.68", "release": "1.amzn2.0.1", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "postgresql", "version": "14.10", "release": "1.amzn2.0.1", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "redis", "version": "6.2.14", "release": "1.amzn2", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "ansible", "version": "2.9.27", "release": "1.amzn2", "arch": "noarch", "vendor": "Amazon.com"},
+    {"name": "ntp", "version": "4.2.8p15", "release": "3.amzn2.0.7", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "openssh-server", "version": "7.4p1", "release": "22.amzn2.0.4", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "sudo", "version": "1.9.5p2", "release": "1.amzn2.0.3", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "cloud-init", "version": "19.3", "release": "46.amzn2", "arch": "noarch", "vendor": "Amazon.com"},
+    {"name": "amazon-efs-utils", "version": "1.35.1", "release": "1.amzn2", "arch": "noarch", "vendor": "Amazon.com"},
+    {"name": "rsyslog", "version": "8.24.0", "release": "57.amzn2.2.0.4", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "cronie", "version": "1.4.11", "release": "24.amzn2.0.1", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "logrotate", "version": "3.8.6", "release": "17.amzn2.0.1", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "nfs-utils", "version": "1.3.0", "release": "0.68.amzn2.0.2", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "yum", "version": "3.4.3", "release": "163.amzn2.0.4", "arch": "noarch", "vendor": "Amazon.com"},
+    {"name": "yum-utils", "version": "1.1.31", "release": "46.amzn2.0.3", "arch": "noarch", "vendor": "Amazon.com"},
+    {"name": "firewalld", "version": "0.4.4.4", "release": "18.amzn2.0.2", "arch": "noarch", "vendor": "Amazon.com"},
+    {"name": "iptables", "version": "1.8.4", "release": "10.amzn2.1.4", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "golang", "version": "1.20.14", "release": "1.amzn2.0.1", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "ruby", "version": "2.0.0.648", "release": "36.amzn2.0.5", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "php", "version": "5.4.16", "release": "46.amzn2.0.3", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "perl", "version": "5.16.3", "release": "299.amzn2.0.3", "arch": "x86_64", "vendor": "Amazon.com"},
+    {"name": "custom-app-agent", "version": "2.1.0", "release": "1", "arch": "x86_64", "vendor": "ACME Corp"}
+  ],
+  "repositories": [
+    {"id": "amzn2-core", "name": "Amazon Linux 2 core repository"},
+    {"id": "amzn2extra-docker", "name": "Amazon Extras repo for docker"},
+    {"id": "amzn2extra-nginx1", "name": "Amazon Extras repo for nginx1"},
+    {"id": "amzn2extra-postgresql14", "name": "Amazon Extras repo for postgresql14"}
+  ],
+  "services_running": [
+    {"name": "sshd", "state": "running"},
+    {"name": "nginx", "state": "running"},
+    {"name": "docker", "state": "running"},
+    {"name": "amazon-ssm-agent", "state": "running"},
+    {"name": "amazon-cloudwatch-agent", "state": "running"},
+    {"name": "crond", "state": "running"},
+    {"name": "rsyslog", "state": "running"},
+    {"name": "ntpd", "state": "running"},
+    {"name": "postgresql", "state": "running"}
+  ],
+  "services_enabled": [
+    {"name": "sshd", "state": "enabled"},
+    {"name": "nginx", "state": "enabled"},
+    {"name": "docker", "state": "enabled"},
+    {"name": "amazon-ssm-agent", "state": "enabled"},
+    {"name": "amazon-cloudwatch-agent", "state": "enabled"},
+    {"name": "crond", "state": "enabled"},
+    {"name": "rsyslog", "state": "enabled"},
+    {"name": "ntpd", "state": "enabled"},
+    {"name": "postgresql", "state": "enabled"}
+  ],
+  "runtimes": {
+    "java": [
+      {"version": "11.0.22", "home": "/usr/lib/jvm/java-11-amazon-corretto", "source": "alternatives"},
+      {"version": "17.0.10", "home": "/usr/lib/jvm/java-17-amazon-corretto", "source": "filesystem"}
+    ],
+    "python": [
+      {"command": "python2", "version": "2.7.18", "path": "/usr/bin/python2"},
+      {"command": "python3", "version": "3.7.16", "path": "/usr/bin/python3"}
+    ],
+    "python_pip_packages": [
+      {"name": "boto3", "version": "1.34.25"},
+      {"name": "requests", "version": "2.31.0"},
+      {"name": "Flask", "version": "2.3.3"},
+      {"name": "gunicorn", "version": "21.2.0"}
+    ],
+    "nodejs": [
+      {"version": "v16.20.2", "path": "/usr/bin/node"}
+    ],
+    "nodejs_global_packages": [
+      {"name": "npm"},
+      {"name": "pm2"},
+      {"name": "yarn"}
+    ],
+    "ruby": [
+      {"version": "2.0.0p648", "path": "/usr/bin/ruby"}
+    ],
+    "ruby_gems": [],
+    "go": [
+      {"version": "1.20.14", "path": "/usr/bin/go"}
+    ],
+    "php": [
+      {"version": "5.4.16", "path": "/usr/bin/php"}
+    ],
+    "php_modules": [
+      {"name": "curl"},
+      {"name": "json"},
+      {"name": "mbstring"},
+      {"name": "mysql"}
+    ],
+    "dotnet": [],
+    "dotnet_sdks": [],
+    "perl": [
+      {"version": "5.16.3", "path": "/usr/bin/perl"}
+    ]
+  },
+  "kernel_modules": [
+    {"name": "xen_netfront", "size": "32768"},
+    {"name": "xen_blkfront", "size": "36864"},
+    {"name": "ena", "size": "114688"},
+    {"name": "nvme", "size": "40960"},
+    {"name": "ext4", "size": "634880"},
+    {"name": "xfs", "size": "1236992"}
+  ],
+  "network_listeners": [
+    {"address": "0.0.0.0", "port": "22", "process": "sshd"},
+    {"address": "0.0.0.0", "port": "80", "process": "nginx"},
+    {"address": "0.0.0.0", "port": "443", "process": "nginx"},
+    {"address": "127.0.0.1", "port": "5432", "process": "postgres"},
+    {"address": "127.0.0.1", "port": "6379", "process": "redis-server"},
+    {"address": "0.0.0.0", "port": "8080", "process": "java"}
+  ]
+}

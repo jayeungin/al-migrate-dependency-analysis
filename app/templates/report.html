@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block title %}Migration Report — {{ report.hostname }}{% endblock %}
+
+{% block content %}
+<section class="report-header">
+    <h1>Migration Report</h1>
+    <div class="report-meta">
+        <span><strong>Host:</strong> {{ report.hostname }}</span>
+        <span><strong>Source:</strong> {{ report.source_os }}</span>
+        <span><strong>Target:</strong> {{ report.target_os }}</span>
+        <span><strong>Generated:</strong> {{ report.generated_at }}</span>
+        <span><strong>Inventory from:</strong> {{ report.inventory_generated_at }}</span>
+    </div>
+</section>
+
+<section class="summary-cards">
+    <div class="card summary-card total">
+        <div class="card-value">{{ report.summary.total_packages }}</div>
+        <div class="card-label">Total Packages</div>
+    </div>
+    <div class="card summary-card green">
+        <div class="card-value">{{ report.summary.direct_match }}</div>
+        <div class="card-label">Direct Match</div>
+        <div class="card-percent">
+            {% if report.summary.total_packages > 0 %}
+            {{ "%.0f"|format(report.summary.direct_match / report.summary.total_packages * 100) }}%
+            {% else %}0%{% endif %}
+        </div>
+    </div>
+    <div class="card summary-card yellow">
+        <div class="card-value">{{ report.summary.renamed + report.summary.replaced }}</div>
+        <div class="card-label">Renamed / Replaced</div>
+        <div class="card-percent">
+            {% if report.summary.total_packages > 0 %}
+            {{ "%.0f"|format((report.summary.renamed + report.summary.replaced) / report.summary.total_packages * 100) }}%
+            {% else %}0%{% endif %}
+        </div>
+    </div>
+    <div class="card summary-card red">
+        <div class="card-value">{{ report.summary.removed + report.summary.manual }}</div>
+        <div class="card-label">Removed / Manual</div>
+        <div class="card-percent">
+            {% if report.summary.total_packages > 0 %}
+            {{ "%.0f"|format((report.summary.removed + report.summary.manual) / report.summary.total_packages * 100) }}%
+            {% else %}0%{% endif %}
+        </div>
+    </div>
+    <div class="card summary-card gray">
+        <div class="card-value">{{ report.summary.unknown }}</div>
+        <div class="card-label">Unknown</div>
+        <div class="card-percent">
+            {% if report.summary.total_packages > 0 %}
+            {{ "%.0f"|format(report.summary.unknown / report.summary.total_packages * 100) }}%
+            {% else %}0%{% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="runtime-section">
+    <h2>Runtime Compatibility</h2>
+    {% if report.runtimes %}
+    <table class="data-table" id="runtime-table">
+        <thead>
+            <tr>
+                <th>Runtime</th>
+                <th>Installed Version</th>
+                <th>Available in RHEL</th>
+                <th>RHEL Versions</th>
+                <th>Install Method</th>
+                <th>Status</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rt in report.runtimes %}
+            <tr class="risk-{{ rt.risk.value }}">
+                <td>{{ rt.runtime }}</td>
+                <td>{{ rt.installed_version }}</td>
+                <td>{{ "Yes" if rt.available_in_rhel else "No" }}</td>
+                <td>{{ rt.rhel_versions | join(", ") }}</td>
+                <td><code>{{ rt.install_method }}</code></td>
+                <td><span class="badge badge-{{ rt.risk.value }}">{{ rt.risk.value | upper }}</span></td>
+                <td>{{ rt.notes }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No runtimes detected in inventory.</p>
+    {% endif %}
+</section>
+
+<section class="package-section">
+    <h2>Package Mapping</h2>
+    <div class="table-controls">
+        <input type="text" id="pkg-search" placeholder="Search packages..." class="search-input">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All ({{ report.summary.total_packages }})</button>
+            <button class="filter-btn" data-filter="green">Direct ({{ report.summary.direct_match }})</button>
+            <button class="filter-btn" data-filter="yellow">Changed ({{ report.summary.renamed + report.summary.replaced }})</button>
+            <button class="filter-btn" data-filter="red">Action Required ({{ report.summary.removed + report.summary.manual }})</button>
+            <button class="filter-btn" data-filter="gray">Unknown ({{ report.summary.unknown }})</button>
+        </div>
+    </div>
+    <table class="data-table" id="package-table">
+        <thead>
+            <tr>
+                <th class="sortable" data-sort="name">Package <span class="sort-icon"></span></th>
+                <th>Installed Version</th>
+                <th class="sortable" data-sort="status">Status <span class="sort-icon"></span></th>
+                <th>RHEL Package</th>
+                <th>Risk</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pkg in report.packages %}
+            <tr class="risk-{{ pkg.risk.value }}" data-risk="{{ pkg.risk.value }}" data-name="{{ pkg.name | lower }}">
+                <td><strong>{{ pkg.name }}</strong></td>
+                <td>{{ pkg.installed_version }}</td>
+                <td><span class="badge badge-status-{{ pkg.status.value }}">{{ pkg.status.value }}</span></td>
+                <td>{{ pkg.rhel_package or "—" }}</td>
+                <td><span class="badge badge-{{ pkg.risk.value }}">{{ pkg.risk.value | upper }}</span></td>
+                <td>{{ pkg.notes }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+{% if report.services %}
+<section class="services-section">
+    <h2>Running Services</h2>
+    <div class="services-grid">
+        {% for svc in report.services %}
+        <span class="service-tag">{{ svc.name }}</span>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% if report.network_listeners %}
+<section class="network-section">
+    <h2>Network Listeners</h2>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Address</th>
+                <th>Port</th>
+                <th>Process</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for nl in report.network_listeners %}
+            <tr>
+                <td>{{ nl.address }}</td>
+                <td>{{ nl.port }}</td>
+                <td>{{ nl.process }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endif %}
+
+<section class="export-section">
+    <h2>Export</h2>
+    <div class="export-buttons">
+        <button class="btn btn-secondary" onclick="exportJSON()">Export JSON</button>
+        <button class="btn btn-secondary" onclick="exportCSV()">Export CSV</button>
+    </div>
+</section>
+
+<script>
+    const REPORT_DATA = {{ report.model_dump() | tojson }};
+</script>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/app.js"></script>
+{% endblock %}

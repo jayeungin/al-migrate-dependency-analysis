@@ -1,0 +1,123 @@
+{
+  "rhel8": {
+    "java": [
+      {"version": "1.8.0", "install_method": "dnf install java-1.8.0-openjdk", "module_stream": "", "notes": "OpenJDK 8, approaching EOL"},
+      {"version": "11", "install_method": "dnf install java-11-openjdk", "module_stream": "", "notes": "OpenJDK 11 LTS"},
+      {"version": "17", "install_method": "dnf install java-17-openjdk", "module_stream": "", "notes": "OpenJDK 17 LTS (RHEL 8.6+)"}
+    ],
+    "python": [
+      {"version": "2.7", "install_method": "dnf install python2", "module_stream": "python27", "notes": "Deprecated, avoid for new workloads"},
+      {"version": "3.6", "install_method": "dnf install python3", "module_stream": "python36", "notes": "Default platform Python"},
+      {"version": "3.8", "install_method": "dnf module install python38", "module_stream": "python38", "notes": "AppStream module"},
+      {"version": "3.9", "install_method": "dnf module install python39", "module_stream": "python39", "notes": "AppStream module"},
+      {"version": "3.11", "install_method": "dnf module install python311", "module_stream": "python311", "notes": "AppStream module (RHEL 8.8+)"},
+      {"version": "3.12", "install_method": "dnf module install python312", "module_stream": "python312", "notes": "AppStream module (RHEL 8.10+)"}
+    ],
+    "nodejs": [
+      {"version": "10", "install_method": "dnf module install nodejs:10", "module_stream": "nodejs:10", "notes": "EOL"},
+      {"version": "12", "install_method": "dnf module install nodejs:12", "module_stream": "nodejs:12", "notes": "EOL"},
+      {"version": "14", "install_method": "dnf module install nodejs:14", "module_stream": "nodejs:14", "notes": "EOL"},
+      {"version": "16", "install_method": "dnf module install nodejs:16", "module_stream": "nodejs:16", "notes": ""},
+      {"version": "18", "install_method": "dnf module install nodejs:18", "module_stream": "nodejs:18", "notes": "LTS"},
+      {"version": "20", "install_method": "dnf module install nodejs:20", "module_stream": "nodejs:20", "notes": "LTS (RHEL 8.9+)"}
+    ],
+    "ruby": [
+      {"version": "2.5", "install_method": "dnf module install ruby:2.5", "module_stream": "ruby:2.5", "notes": "Default"},
+      {"version": "2.6", "install_method": "dnf module install ruby:2.6", "module_stream": "ruby:2.6", "notes": ""},
+      {"version": "2.7", "install_method": "dnf module install ruby:2.7", "module_stream": "ruby:2.7", "notes": ""},
+      {"version": "3.0", "install_method": "dnf module install ruby:3.0", "module_stream": "ruby:3.0", "notes": ""},
+      {"version": "3.1", "install_method": "dnf module install ruby:3.1", "module_stream": "ruby:3.1", "notes": "RHEL 8.7+"}
+    ],
+    "php": [
+      {"version": "7.2", "install_method": "dnf module install php:7.2", "module_stream": "php:7.2", "notes": "Default"},
+      {"version": "7.3", "install_method": "dnf module install php:7.3", "module_stream": "php:7.3", "notes": ""},
+      {"version": "7.4", "install_method": "dnf module install php:7.4", "module_stream": "php:7.4", "notes": ""},
+      {"version": "8.0", "install_method": "dnf module install php:8.0", "module_stream": "php:8.0", "notes": "RHEL 8.6+"},
+      {"version": "8.1", "install_method": "dnf module install php:8.1", "module_stream": "php:8.1", "notes": "RHEL 8.8+"}
+    ],
+    "go": [
+      {"version": "1.19", "install_method": "dnf install go-toolset", "module_stream": "go-toolset", "notes": "Via go-toolset"},
+      {"version": "1.20", "install_method": "dnf install go-toolset", "module_stream": "go-toolset", "notes": "RHEL 8.9+"},
+      {"version": "1.21", "install_method": "dnf install go-toolset", "module_stream": "go-toolset", "notes": "RHEL 8.10+"}
+    ],
+    "perl": [
+      {"version": "5.26", "install_method": "dnf install perl", "module_stream": "", "notes": "Default Perl in RHEL 8"}
+    ],
+    "dotnet": [
+      {"version": "6.0", "install_method": "dnf install dotnet-sdk-6.0", "module_stream": "", "notes": ".NET 6 LTS"},
+      {"version": "7.0", "install_method": "dnf install dotnet-sdk-7.0", "module_stream": "", "notes": ".NET 7 STS"},
+      {"version": "8.0", "install_method": "dnf install dotnet-sdk-8.0", "module_stream": "", "notes": ".NET 8 LTS (RHEL 8.9+)"}
+    ]
+  },
+  "rhel9": {
+    "java": [
+      {"version": "1.8.0", "install_method": "dnf install java-1.8.0-openjdk", "module_stream": "", "notes": "OpenJDK 8, approaching EOL"},
+      {"version": "11", "install_method": "dnf install java-11-openjdk", "module_stream": "", "notes": "OpenJDK 11 LTS"},
+      {"version": "17", "install_method": "dnf install java-17-openjdk", "module_stream": "", "notes": "OpenJDK 17 LTS"},
+      {"version": "21", "install_method": "dnf install java-21-openjdk", "module_stream": "", "notes": "OpenJDK 21 LTS (RHEL 9.3+)"}
+    ],
+    "python": [
+      {"version": "3.9", "install_method": "dnf install python3", "module_stream": "", "notes": "Default platform Python"},
+      {"version": "3.11", "install_method": "dnf install python3.11", "module_stream": "", "notes": "AppStream"},
+      {"version": "3.12", "install_method": "dnf install python3.12", "module_stream": "", "notes": "AppStream (RHEL 9.4+)"}
+    ],
+    "nodejs": [
+      {"version": "16", "install_method": "dnf module install nodejs:16", "module_stream": "nodejs:16", "notes": ""},
+      {"version": "18", "install_method": "dnf module install nodejs:18", "module_stream": "nodejs:18", "notes": "LTS"},
+      {"version": "20", "install_method": "dnf module install nodejs:20", "module_stream": "nodejs:20", "notes": "LTS (RHEL 9.3+)"}
+    ],
+    "ruby": [
+      {"version": "3.0", "install_method": "dnf module install ruby:3.0", "module_stream": "ruby:3.0", "notes": "Default"},
+      {"version": "3.1", "install_method": "dnf module install ruby:3.1", "module_stream": "ruby:3.1", "notes": "RHEL 9.2+"},
+      {"version": "3.3", "install_method": "dnf module install ruby:3.3", "module_stream": "ruby:3.3", "notes": "RHEL 9.4+"}
+    ],
+    "php": [
+      {"version": "8.0", "install_method": "dnf module install php:8.0", "module_stream": "php:8.0", "notes": "Default"},
+      {"version": "8.1", "install_method": "dnf module install php:8.1", "module_stream": "php:8.1", "notes": "RHEL 9.2+"},
+      {"version": "8.2", "install_method": "dnf module install php:8.2", "module_stream": "php:8.2", "notes": "RHEL 9.4+"}
+    ],
+    "go": [
+      {"version": "1.19", "install_method": "dnf install go-toolset", "module_stream": "go-toolset", "notes": ""},
+      {"version": "1.20", "install_method": "dnf install go-toolset", "module_stream": "go-toolset", "notes": "RHEL 9.3+"},
+      {"version": "1.21", "install_method": "dnf install go-toolset", "module_stream": "go-toolset", "notes": "RHEL 9.4+"}
+    ],
+    "perl": [
+      {"version": "5.32", "install_method": "dnf install perl", "module_stream": "", "notes": "Default Perl in RHEL 9"}
+    ],
+    "dotnet": [
+      {"version": "6.0", "install_method": "dnf install dotnet-sdk-6.0", "module_stream": "", "notes": ".NET 6 LTS"},
+      {"version": "7.0", "install_method": "dnf install dotnet-sdk-7.0", "module_stream": "", "notes": ".NET 7 STS"},
+      {"version": "8.0", "install_method": "dnf install dotnet-sdk-8.0", "module_stream": "", "notes": ".NET 8 LTS"},
+      {"version": "9.0", "install_method": "dnf install dotnet-sdk-9.0", "module_stream": "", "notes": ".NET 9 STS (RHEL 9.5+)"}
+    ]
+  },
+  "rhel10": {
+    "java": [
+      {"version": "17", "install_method": "dnf install java-17-openjdk", "module_stream": "", "notes": "OpenJDK 17 LTS"},
+      {"version": "21", "install_method": "dnf install java-21-openjdk", "module_stream": "", "notes": "OpenJDK 21 LTS — primary JDK in RHEL 10"},
+      {"version": "24", "install_method": "dnf install java-24-openjdk", "module_stream": "", "notes": "OpenJDK 24 STS"}
+    ],
+    "python": [
+      {"version": "3.12", "install_method": "dnf install python3", "module_stream": "", "notes": "Default platform Python in RHEL 10"},
+      {"version": "3.13", "install_method": "dnf install python3.13", "module_stream": "", "notes": "AppStream"}
+    ],
+    "nodejs": [
+      {"version": "22", "install_method": "dnf module install nodejs:22", "module_stream": "nodejs:22", "notes": "LTS"}
+    ],
+    "ruby": [
+      {"version": "3.3", "install_method": "dnf install ruby", "module_stream": "", "notes": "Default Ruby in RHEL 10"}
+    ],
+    "php": [
+      {"version": "8.3", "install_method": "dnf install php", "module_stream": "", "notes": "Default PHP in RHEL 10"}
+    ],
+    "go": [
+      {"version": "1.22", "install_method": "dnf install go-toolset", "module_stream": "go-toolset", "notes": "Default Go in RHEL 10"}
+    ],
+    "perl": [
+      {"version": "5.40", "install_method": "dnf install perl", "module_stream": "", "notes": "Default Perl in RHEL 10"}
+    ],
+    "dotnet": [
+      {"version": "9.0", "install_method": "dnf install dotnet-sdk-9.0", "module_stream": "", "notes": ".NET 9"}
+    ]
+  }
+}

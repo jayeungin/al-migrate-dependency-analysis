@@ -1,0 +1,381 @@
+{
+  "amazon-linux-extras": {
+    "rhel_package": null,
+    "status": "removed",
+    "notes": "No equivalent in RHEL. Extras topics (e.g. nginx, redis, postgresql) map to individual RHEL AppStream module streams."
+  },
+  "amazon-ssm-agent": {
+    "rhel_package": "amazon-ssm-agent",
+    "status": "direct",
+    "notes": "Available from the AWS RHEL repo. Install via: yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm"
+  },
+  "aws-cli": {
+    "rhel_package": "awscli2",
+    "status": "replaced",
+    "notes": "RHEL does not ship aws-cli v1 by default. Install AWS CLI v2 from the AWS installer bundle."
+  },
+  "ec2-utils": {
+    "rhel_package": null,
+    "status": "removed",
+    "notes": "Amazon-specific EC2 utilities. Use cloud-init and ec2-instance-connect on RHEL instead."
+  },
+  "ec2-net-utils": {
+    "rhel_package": null,
+    "status": "removed",
+    "notes": "Amazon-specific network utilities for ENI management. RHEL uses NetworkManager natively."
+  },
+  "system-release": {
+    "rhel_package": "redhat-release",
+    "status": "replaced",
+    "notes": "RHEL provides redhat-release and redhat-release-server."
+  },
+  "amazon-linux-onprem": {
+    "rhel_package": null,
+    "status": "removed",
+    "notes": "Amazon Linux on-premises support package. Not applicable to RHEL."
+  },
+  "kernel": {
+    "rhel_package": "kernel",
+    "status": "direct",
+    "notes": "RHEL ships its own kernel. Version numbers differ (AL2 4.14/5.10 vs RHEL 8 4.18)."
+  },
+  "glibc": {
+    "rhel_package": "glibc",
+    "status": "direct",
+    "notes": "RHEL 8 ships glibc 2.28. Check application compatibility if relying on specific glibc symbols."
+  },
+  "openssl": {
+    "rhel_package": "openssl",
+    "status": "direct",
+    "rhel_version": "1.1.1",
+    "notes": "RHEL 8 ships OpenSSL 1.1.1. AL2 also ships 1.0.2 in some configurations."
+  },
+  "openssl11": {
+    "rhel_package": "openssl",
+    "status": "renamed",
+    "rhel_version": "1.1.1",
+    "notes": "AL2 compat package openssl11 maps to the default openssl in RHEL 8."
+  },
+  "python2": {
+    "rhel_package": "python2",
+    "status": "direct",
+    "rhel_version": "2.7",
+    "notes": "Available but deprecated in RHEL 8. Migrate to Python 3."
+  },
+  "python3": {
+    "rhel_package": "python3",
+    "status": "direct",
+    "rhel_version": "3.6",
+    "notes": "RHEL 8 default is Python 3.6. AppStream modules provide 3.8, 3.9, 3.11."
+  },
+  "python3-pip": {
+    "rhel_package": "python3-pip",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS/AppStream."
+  },
+  "java-1.8.0-openjdk": {
+    "rhel_package": "java-1.8.0-openjdk",
+    "status": "direct",
+    "notes": "OpenJDK 8 available in RHEL 8 AppStream."
+  },
+  "java-11-openjdk": {
+    "rhel_package": "java-11-openjdk",
+    "status": "direct",
+    "notes": "OpenJDK 11 available in RHEL 8 AppStream."
+  },
+  "java-11-amazon-corretto": {
+    "rhel_package": "java-11-openjdk",
+    "status": "replaced",
+    "notes": "Amazon Corretto is not packaged for RHEL. Use OpenJDK 11 or install Corretto from the AWS repo."
+  },
+  "java-17-amazon-corretto": {
+    "rhel_package": "java-17-openjdk",
+    "status": "replaced",
+    "notes": "Amazon Corretto 17 maps to OpenJDK 17 in RHEL 8 AppStream."
+  },
+  "nodejs": {
+    "rhel_package": "nodejs",
+    "status": "direct",
+    "notes": "Available as AppStream module streams (10, 12, 14, 16, 18). Enable the matching stream."
+  },
+  "nginx": {
+    "rhel_package": "nginx",
+    "status": "direct",
+    "notes": "Available in RHEL 8 AppStream. Version may differ from AL2 extras."
+  },
+  "httpd": {
+    "rhel_package": "httpd",
+    "status": "direct",
+    "notes": "Apache 2.4 available in RHEL 8 AppStream."
+  },
+  "docker": {
+    "rhel_package": "podman",
+    "status": "replaced",
+    "notes": "RHEL 8 does not ship Docker. Use Podman (drop-in replacement) or install Docker CE from docker.com."
+  },
+  "containerd": {
+    "rhel_package": "podman",
+    "status": "replaced",
+    "notes": "RHEL 8 uses Podman/Buildah/Skopeo instead of Docker/containerd."
+  },
+  "mariadb": {
+    "rhel_package": "mariadb",
+    "status": "direct",
+    "notes": "Available as AppStream module. Version may differ."
+  },
+  "mysql": {
+    "rhel_package": "mysql",
+    "status": "direct",
+    "notes": "MySQL 8.0 available as RHEL 8 AppStream module."
+  },
+  "postgresql": {
+    "rhel_package": "postgresql",
+    "status": "direct",
+    "notes": "Multiple versions available as AppStream module streams (9.6, 10, 12, 13, 15)."
+  },
+  "redis": {
+    "rhel_package": "redis",
+    "status": "direct",
+    "notes": "Available as RHEL 8 AppStream module. May need to enable module stream."
+  },
+  "memcached": {
+    "rhel_package": "memcached",
+    "status": "direct",
+    "notes": "Available in RHEL 8 AppStream."
+  },
+  "php": {
+    "rhel_package": "php",
+    "status": "direct",
+    "notes": "Available as AppStream module (7.2, 7.3, 7.4, 8.0). Enable matching stream."
+  },
+  "ruby": {
+    "rhel_package": "ruby",
+    "status": "direct",
+    "notes": "Available as AppStream module (2.5, 2.6, 2.7, 3.0, 3.1). Enable matching stream."
+  },
+  "golang": {
+    "rhel_package": "golang",
+    "status": "direct",
+    "notes": "Go toolset available as AppStream module."
+  },
+  "perl": {
+    "rhel_package": "perl",
+    "status": "direct",
+    "notes": "Perl 5.26 in RHEL 8. Additional modules as AppStream."
+  },
+  "git": {
+    "rhel_package": "git",
+    "status": "direct",
+    "notes": "Available in RHEL 8 AppStream."
+  },
+  "vim-enhanced": {
+    "rhel_package": "vim-enhanced",
+    "status": "direct",
+    "notes": "Available in RHEL 8 AppStream."
+  },
+  "curl": {
+    "rhel_package": "curl",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "wget": {
+    "rhel_package": "wget",
+    "status": "direct",
+    "notes": "Available in RHEL 8 AppStream."
+  },
+  "tar": {
+    "rhel_package": "tar",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "unzip": {
+    "rhel_package": "unzip",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "make": {
+    "rhel_package": "make",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "gcc": {
+    "rhel_package": "gcc",
+    "status": "direct",
+    "notes": "Available in RHEL 8 AppStream. GCC 8 by default, newer via toolset."
+  },
+  "gcc-c++": {
+    "rhel_package": "gcc-c++",
+    "status": "direct",
+    "notes": "Available in RHEL 8 AppStream."
+  },
+  "gdb": {
+    "rhel_package": "gdb",
+    "status": "direct",
+    "notes": "Available in RHEL 8 AppStream."
+  },
+  "strace": {
+    "rhel_package": "strace",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "tcpdump": {
+    "rhel_package": "tcpdump",
+    "status": "direct",
+    "notes": "Available in RHEL 8 AppStream."
+  },
+  "nmap": {
+    "rhel_package": "nmap",
+    "status": "direct",
+    "notes": "Available in RHEL 8 AppStream."
+  },
+  "bind-utils": {
+    "rhel_package": "bind-utils",
+    "status": "direct",
+    "notes": "Available in RHEL 8 AppStream."
+  },
+  "net-tools": {
+    "rhel_package": "net-tools",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "iproute": {
+    "rhel_package": "iproute",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "iptables": {
+    "rhel_package": "iptables",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS. RHEL 8 prefers nftables as default firewall backend."
+  },
+  "firewalld": {
+    "rhel_package": "firewalld",
+    "status": "direct",
+    "notes": "Available and enabled by default in RHEL 8."
+  },
+  "chrony": {
+    "rhel_package": "chrony",
+    "status": "direct",
+    "notes": "Default NTP client in RHEL 8."
+  },
+  "ntp": {
+    "rhel_package": "chrony",
+    "status": "replaced",
+    "notes": "ntp/ntpd replaced by chrony in RHEL 8. Migrate NTP configuration."
+  },
+  "rsyslog": {
+    "rhel_package": "rsyslog",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "logrotate": {
+    "rhel_package": "logrotate",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "cronie": {
+    "rhel_package": "cronie",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "sudo": {
+    "rhel_package": "sudo",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "openssh-server": {
+    "rhel_package": "openssh-server",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "openssh-clients": {
+    "rhel_package": "openssh-clients",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "cloud-init": {
+    "rhel_package": "cloud-init",
+    "status": "direct",
+    "notes": "Available in RHEL 8 AppStream. AWS datasource supported."
+  },
+  "ansible": {
+    "rhel_package": "ansible-core",
+    "status": "renamed",
+    "notes": "RHEL 8.6+ ships ansible-core in AppStream. The 'ansible' package is the full collection bundle."
+  },
+  "puppet": {
+    "rhel_package": "puppet-agent",
+    "status": "renamed",
+    "notes": "Install from Puppet Inc repository for RHEL 8."
+  },
+  "chef": {
+    "rhel_package": null,
+    "status": "manual",
+    "notes": "Chef is not in RHEL repos. Install from Chef (Progress) downloads."
+  },
+  "collectd": {
+    "rhel_package": "collectd",
+    "status": "direct",
+    "notes": "Available in RHEL 8 AppStream."
+  },
+  "amazon-cloudwatch-agent": {
+    "rhel_package": "amazon-cloudwatch-agent",
+    "status": "direct",
+    "notes": "Install from the AWS RPM repo. Same package works on RHEL."
+  },
+  "aws-cfn-bootstrap": {
+    "rhel_package": "aws-cfn-bootstrap",
+    "status": "direct",
+    "notes": "Install from AWS. Available as pip package or RPM."
+  },
+  "aws-kinesis-agent": {
+    "rhel_package": "aws-kinesis-agent",
+    "status": "direct",
+    "notes": "Install from AWS repository."
+  },
+  "amazon-efs-utils": {
+    "rhel_package": "amazon-efs-utils",
+    "status": "direct",
+    "notes": "Build from source or install from AWS repo for RHEL."
+  },
+  "lustre-client": {
+    "rhel_package": "lustre-client",
+    "status": "manual",
+    "notes": "Amazon FSx Lustre client must be built for the RHEL kernel version."
+  },
+  "samba": {
+    "rhel_package": "samba",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS/AppStream."
+  },
+  "nfs-utils": {
+    "rhel_package": "nfs-utils",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "sssd": {
+    "rhel_package": "sssd",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS."
+  },
+  "realmd": {
+    "rhel_package": "realmd",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS for Active Directory integration."
+  },
+  "yum": {
+    "rhel_package": "yum",
+    "status": "direct",
+    "notes": "RHEL 8 ships yum as a symlink to dnf. Full backward compatibility."
+  },
+  "yum-utils": {
+    "rhel_package": "yum-utils",
+    "status": "direct",
+    "notes": "Available in RHEL 8 BaseOS (wraps dnf plugins)."
+  },
+  "epel-release": {
+    "rhel_package": "epel-release",
+    "status": "direct",
+    "notes": "EPEL for RHEL 8 available. Install from EPEL repo."
+  }
+}
